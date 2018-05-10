@@ -3,7 +3,6 @@
 #include <iostream>
 #include <memory>
 #include <string>
-#include <csignal>
 #include <unistd.h>
 
 #include <curl/curl.h>
@@ -11,14 +10,9 @@
 
 #include "services.h"
 #include "util.hpp"
-#include "sighandler.hpp"
 
 int main(int argc, char **argv)
 {
-    // signal(SIGSEGV, segfault_handler);
-    // signal(SIGABRT, segfault_handler);
-    // signal(SIGINT, sigint_handler);
-
     Json::Value jsonData;
     Json::Reader jsonReader;
 
