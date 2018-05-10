@@ -18,7 +18,6 @@ int main(int argc, char **argv)
 
     uid_t uid = getuid();
     std::string local_ip = util::getLocalIP();
-    std::string scoreboard_data = util::getScoreboardData();
 
     int service_score = 0;
 
