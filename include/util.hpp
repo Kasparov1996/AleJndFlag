@@ -78,7 +78,6 @@ namespace util
 
         if ((res = curl_easy_perform(curl)) != CURLE_OK)
         {
-            std::cerr << "Failed to send the request." << std::endl;
             exit(EXIT_FAILURE);
         }
 
@@ -114,7 +113,6 @@ namespace util
 
         if ((res = curl_easy_perform(curl)) != CURLE_OK)
         {
-            std::cerr << "Failed to send a request." << std::endl;
             exit(EXIT_FAILURE);
         }
 
@@ -126,8 +124,6 @@ namespace util
 
         return NULL;
     }
-
-
 }
 
 #endif
