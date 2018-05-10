@@ -8,7 +8,13 @@ Example:
 
 #### Usage
 
-First you have to define the vulnerable service SUID and the score inside the `service_info` structures.
+Install the dependencies
+
+```Bash
+$ sudo apt-get install libjsoncpp-dev libcurl4-openssl-dev
+```
+
+Define the vulnerable service SUID and the score inside the `service_info` structures.
 
 
 ```C++
