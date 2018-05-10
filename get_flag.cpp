@@ -9,9 +9,9 @@
 #include <curl/curl.h>
 #include <jsoncpp/json/json.h>
 
-#include "./services.h"
-#include "./util.hpp"
-#include "./sighandler.hpp"
+#include "services.h"
+#include "util.hpp"
+#include "sighandler.hpp"
 
 
 const std::string url("http://192.168.1.5:8888/scoreboard.json");
