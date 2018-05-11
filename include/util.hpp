@@ -3,54 +3,11 @@
 
 namespace util
 {
-    /*
-     * NOTE: This should be the place where all the utilities subroutine is implemented
-     *
-     * TODO: How can we make use of this callback?
-     */
-
     std::size_t callback(const char *in, std::size_t size, std::size_t num, std::string *out)
     {
         const std::size_t totalBytes(size * num);
         out->append(in, totalBytes);
         return totalBytes;
-    }
-
-    extern "C"
-    {
-        #include <sys/socket.h>
-        #include <arpa/inet.h>
-        #include <ifaddrs.h>
-
-        #include <stdio.h>
-        #include <stdlib.h>
-        #include <string.h>
-
-        char *getLocalIP();
-    };
-
-    char *getLocalIP()
-    {
-        struct ifaddrs *ifaces,  *res;
-        int ret;
-
-        if ((ret = getifaddrs(&ifaces)) != 0)
-        {
-            fprintf(stderr, "Failed to get interface.\n");
-            exit(EXIT_FAILURE);
-        }
-
-        for (res = ifaces; res != NULL; res = res->ifa_next)
-        {
-            if (strncmp(res->ifa_name, "ens33", 5) !=0)
-                continue;
-
-            if (res->ifa_addr->sa_family == AF_INET)
-            {
-                freeifaddrs(ifaces);
-                return inet_ntoa(((struct sockaddr_in *)res->ifa_addr)->sin_addr);
-            }
-        }
     }
 
     std::string getServiceFlag(uid_t u, std::string local_ip, int s)

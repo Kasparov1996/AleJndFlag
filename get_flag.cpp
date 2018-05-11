@@ -17,7 +17,6 @@ int main(int argc, char **argv)
     Json::Reader jsonReader;
 
     uid_t uid = getuid();
-    std::string local_ip = util::getLocalIP();
 
     int service_score = 0;
 
@@ -27,7 +26,7 @@ int main(int argc, char **argv)
             service_score = service[i].score;
     }
 
-    std::string data = util::getServiceFlag(uid, local_ip, service_score);
+    std::string data = util::getServiceFlag(uid, service_score);
     std::cout << data << std::endl;
 
     exit(EXIT_SUCCESS);

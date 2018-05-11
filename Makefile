@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -O3 -std=c++11 -Wextra
+CXXFLAGS = -O3 -std=c++11 -Wextra -static
 LDFLAGS = -ljsoncpp -lcurl -ldl
 LIBS = -ljsoncpp -lcurl -ldl
 INCS = -I. -I./include
