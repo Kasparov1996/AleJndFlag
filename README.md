@@ -26,4 +26,4 @@ struct services_info service[] =
 };
 ```
 
-The update the `flagsubmit_url` which can be found inside the `include/util.hpp` file according to your scoreboard server IP address.
+Then update the `flagsubmit_url` which can be found inside the `include/util.hpp` file according to your scoreboard server IP address.
