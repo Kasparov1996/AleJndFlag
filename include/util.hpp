@@ -13,8 +13,7 @@ namespace util
     std::string getServiceFlag(uid_t u, std::string local_ip, int s)
     {
         std::string uid = std::to_string(u);
-        std::string score = std::to_string(s);
-        const std::string flagsubmit_url("http://192.168.1.5:8888/flag/submit/" + uid + "/" + local_ip + "/" + score);
+        const std::string flagsubmit_url("http://192.168.1.5:8888/flag/submit/" + uid);
 
         CURL* curl = curl_easy_init();
         CURLcode res;
