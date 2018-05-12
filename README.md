@@ -21,8 +21,8 @@ Define the vulnerable service SUID and the score inside the `service_info` struc
 ```C++
 struct services_info service[] =
 {
-    {1000, 200},
-    {1001, 300}
+    {1000},
+    {1001}
 };
 ```
 
