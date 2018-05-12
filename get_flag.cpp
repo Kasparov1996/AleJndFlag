@@ -15,8 +15,7 @@ int main(int argc, char **argv)
     crypto::gen_params(iv);
 
     secure_string ptext = util::getLocalIP();
-
-    secure_string ctext, rtext;
+    secure_string ctext;
 
     crypto::aes_encrypt(key, iv, ptext, ctext);
     ctext.append("$");
