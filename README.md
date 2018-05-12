@@ -12,18 +12,7 @@ Example:
 Install the dependencies
 
 ```Bash
-$ sudo apt-get install libjsoncpp-dev libcurl4-openssl-dev
+$ sudo apt-get install libssl-dev
+$ make
+$ ./get_flag
 ```
-
-Define the vulnerable service SUID and the score inside the `service_info` structures.
-
-
-```C++
-struct services_info service[] =
-{
-    {1000},
-    {1001}
-};
-```
-
-Then update the `flagsubmit_url` which can be found inside the `include/util.hpp` file according to your scoreboard server IP address.
