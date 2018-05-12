@@ -1,8 +1,8 @@
 CXX = g++
-CXXFLAGS = -O3 -std=c++11 -Wextra -static
-LDFLAGS = -ljsoncpp -lcurl -ldl
-LIBS = -ljsoncpp -lcurl -ldl
-INCS = -I. -I./include
+CXXFLAGS = -O3 -std=c++11 -Wextra
+LDFLAGS = -lcrypto
+LIBS = -lcrypto
+INCS = -I./include
 PROG = get_flag
 SRCS = $(wildcard *.cpp)
 OBJS = $(patsubst %.cpp, %.o, $(SRCS))
