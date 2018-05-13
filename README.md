@@ -11,6 +11,8 @@ Example:
 
 Install the dependencies
 
+*NOTE* : Make sure to set the `INTERFACE` in file `get_flag.cpp` to the configured interface name.
+
 ```Bash
 $ sudo apt-get install libssl-dev
 $ make
