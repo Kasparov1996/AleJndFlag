@@ -18,8 +18,8 @@ int main(int argc, char **argv)
     secure_string ctext;
 
     crypto::aes_encrypt(key, iv, ptext, ctext);
-    ctext.append("$");
-    ctext.append((char *)iv);
+    ctext.append("::");
+    ctext.append((char *)iv, BLOCK_SIZE);
 
     OPENSSL_cleanse(iv, BLOCK_SIZE);
 

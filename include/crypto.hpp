@@ -137,12 +137,12 @@ namespace crypto
         size = size > 64 ? size : 64;
         byte *out = (byte *) malloc(size);
 
-        EVP_ENCODE_CTX ectx;
-        EVP_EncodeInit(&ectx);
-        EVP_EncodeUpdate(&ectx, out, &outlen, (const byte*) text.c_str(), text.size());
+        EVP_ENCODE_CTX *ectx = EVP_ENCODE_CTX_new();
+        EVP_EncodeInit(ectx);
+        EVP_EncodeUpdate(ectx, out, &outlen, (const byte*) text.c_str(), text.size());
         tlen += outlen;
 
-        EVP_EncodeFinal(&ectx, out + tlen, &outlen);
+        EVP_EncodeFinal(ectx, out + tlen, &outlen);
         tlen += outlen;
 
         secure_string encoded((char *)out, tlen);

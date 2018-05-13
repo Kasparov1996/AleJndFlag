@@ -29,6 +29,9 @@ namespace util
 
         for (res = ifaces; res != NULL; res = res->ifa_next)
         {
+            if (res->ifa_name == NULL)
+                continue;
+
             if (strncmp(res->ifa_name, "ens33", 5) !=0)
                 continue;
 
