@@ -1,20 +1,19 @@
 CXX = g++
 CXXFLAGS = -O3 -std=c++11 -Wextra
-LDFLAGS = -lcrypto
-LIBS = -lcrypto
+LDFLAGS = -lcrypto -lcurl -ljsoncpp
+LIBS = -lcrypto -lcurl -ljsoncpp
 INCS = -I./include
 PROG = get_flag
 SRCS = $(wildcard *.cpp)
-OBJS = $(patsubst %.cpp, %.o, $(SRCS))
-SUBDIRS = all clean
+SUBDIRS = single multi clean
 
-all: $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(PROG) $(OBJS) $(INCS) $(LDFLAGS)
+single:
+	@$(CXX) $(SRCS) $(CXXFLAGS) -o $(PROG) $(INCS) $(LDFLAGS)
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< $(LIBS) $(INCS) -o $@
+multi:
+	@$(CXX) $(SRCS) $(CXXFLAGS) -o $(PROG) $(INCS) $(LDFLAGS) -DMULTISERVICE
 
 .PHONY: $(SUBDIRS)
 
 clean:
-	rm -f *.o $(PROG)
+	@rm -f *.o $(PROG)

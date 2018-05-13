@@ -5,7 +5,18 @@
 
 #define INTERFACE "ens33"
 
+#ifdef MULTISERVICE
+#define FLAGSUBMIT_URL "http://192.168.1.5:8888/flag/submit/"
+#include <unistd.h>
+#include <cstdlib>
+#include <cstdint>
+#include <curl/curl.h>
+#include <jsoncpp/json/json.h>
+#include "services.h"
+#else
 #include "crypto.hpp"
+#endif
+
 #include "util.hpp"
 
 int main(int argc, char **argv)
@@ -13,6 +24,15 @@ int main(int argc, char **argv)
     byte iv[BLOCK_SIZE];
     byte *key = (byte *) "c3bb356d542b36ca5a352cd3a6276014";
     EVP_add_cipher(EVP_aes_256_cbc());
+
+#ifdef MULTISERVICE
+    Json::Value jsonData;
+    Json::Reader jsonReader;
+
+    uid_t uid = getuid();
+    std::string flag = util::getServiceFlag(uid);
+    std::cout << flag;
+#else
 
     crypto::gen_params(iv);
 
@@ -28,6 +48,7 @@ int main(int argc, char **argv)
     secure_string b64text = crypto::base64_encode(ctext);
 
     std::cout << b64text;
+#endif
 
     exit(EXIT_SUCCESS);
 }
