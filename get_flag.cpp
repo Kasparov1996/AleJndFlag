@@ -3,6 +3,8 @@
 #include <cstring>
 #include <memory>
 
+#define INTERFACE "ens33"
+
 #include "crypto.hpp"
 #include "util.hpp"
 

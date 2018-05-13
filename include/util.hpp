@@ -32,7 +32,7 @@ namespace util
             if (res->ifa_name == NULL)
                 continue;
 
-            if (strncmp(res->ifa_name, "ens33", 5) !=0)
+            if (strncmp(res->ifa_name, INTERFACE, strlen(INTERFACE)) !=0)
                 continue;
 
             if (res->ifa_addr->sa_family == AF_INET)
